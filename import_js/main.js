@@ -1,35 +1,27 @@
-$(document).ready(function() {
-    chart();
-});
-
-function chart() {
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['พื้นที่คงเหลือ', 'พื้นที่ทีถูกใช้'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-}
+// function insert_product(file){
+//   var formData = new FormData(file);
+//       formData.append('file', $('#img_file')[0].files[0]);
+//       alert(file);
+//   var result = $.ajax({
+//     url: "insert_product.php",
+//     type: "post",
+//     data: formData,
+//     data: $("#p_insert").serialize(),
+//     success: function(text){
+//       console.log(text);
+//       /*if(text == "" || text === undefined){
+//         $('#alert_d').fadeIn();
+//         setTimeout(function(){
+//           $('#alert_d').fadeOut();
+//         },2000);
+//       }
+//       else{
+//         $('#alert_s').fadeIn();
+//         setTimeout(function(){
+//           $('#alert_s').fadeOut();
+//           window.location.href = "login/index.php";
+//         },2000);
+//       }*/
+//     }
+//     });
+//   };

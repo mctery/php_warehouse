@@ -2,13 +2,10 @@
 <html lang="en" dir="ltr">
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
-  <script src="bootstrap/js/popper.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="import_js/Chart.min.js"></script>
-  <script src="import_js/main.js"></script>
-  <title>Warehouse</title>
+  <?php
+    require 'head.php';
+    session_start();
+  ?>
  </head>
  <?php
   require 'connect.php';
@@ -32,9 +29,8 @@
                       <td>ประเภทสินค้า</td>
                       <td>ราคาสินค้า</td>
                       <td>จำนวนสินค้า</td>
-                      <td>รูปภาพสินค้า</td>
                       <td>วันที่รับ-เข้าสินค้า</td>
-                      <td>ที่อยู่คลังสินค้า</td>
+                      <td colspan="2">คลังสินค้า</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,13 +51,12 @@
                       <tr>
                         <td><?php echo $row['product_id']; ?></td>
                         <td><?php echo $row['product_name']; ?></td>
-                        <!--<td><?php echo $row['product_detail']; ?></td>-->
                         <td><?php echo $row['product_type_name']; ?></td>
                         <td><?php echo number_format($row['product_price']); ?> : บาท</td>
                         <td><?php echo number_format($row['product_qty']); ?> : ชิ้น</td>
-                        <td><img class="rounded" src="img/product/<?php echo $row['product_img'];?>" width="50px"></td>
                         <td><?php @$date=mktime($row['product_update']); echo date("d-m-Y",$date); ?></td>
-                        <td><?php echo $row['zone_name']; ?></td>
+                        <td><?php echo $row['warehouse_name']."-".$row['zone_name']; ?></td>
+                        <td class="text-danger"><center><img src="../img/edit.png" width="30" /></center></td>
                   </tr>
                 </tbody>
                   <?php } ?>

@@ -11,16 +11,19 @@
   <title>Warehouse</title>
  </head>
  <?php
-  require_once 'connect.php';
+  require 'connect.php';
   $sql_warehouse = "SELECT * FROM `warehouse`";
   $sql_product_type = "SELECT * FROM `product_type`";
   $sql_orders_type = "SELECT * FROM `orders_type`";
  ?>
  <body>
   <div class="container-fluid">
-   <?php require_once 'nev_bar.php';?>
+
+    <div class="alert alert-danger" style="margin-top:20px; display:none; position:fixed; z-index:10;" role="alert">Username หรือ Password ไม่ถูกต้อง กรุณา Login ใหม่อีกครั้ง</div>
+
+   <?php require 'nev_bar.php';?>
    <div class="row">
-    <?php require_once 'side_bar.php';?>
+    <?php require 'side_bar.php';?>
     <div class="col-lg">
       <div class="content_storage" style="width: 100%; height:auto; overflow:hidden;">
         <div style="width:100%; margin-top:20px;"><p class="h6"><b>พื้นที่คงเหลือโกดัง</b></p></div>

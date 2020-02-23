@@ -2,25 +2,22 @@
 <html lang="en" dir="ltr">
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
-  <script src="bootstrap/js/popper.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="import_js/Chart.min.js"></script>
-  <script src="import_js/main.js"></script>
-  <title>Warehouse</title>
+  <?php
+    require 'head.php';
+    session_start();
+  ?>
  </head>
  <?php
-  require_once 'connect.php';
+  require 'connect.php';
   $sql_warehouse = "SELECT * FROM `warehouse`";
   $sql_product_type = "SELECT * FROM `product_type`";
   $sql_orders_type = "SELECT * FROM `orders_type`";
  ?>
  <body>
   <div class="container-fluid">
-   <?php require_once 'nev_bar.php';?>
+   <?php require 'nev_bar.php';?>
    <div class="row">
-    <?php require_once 'side_bar.php';?>
+    <?php require 'side_bar.php';?>
     <div class="col-lg">
       <div class="content_storage" style="width: 100%; height:auto; overflow:hidden;">
         <div style="width:100%; margin-top:20px;"><p class="h6"><b>พื้นที่คงเหลือโกดัง</b></p></div>
@@ -45,7 +42,7 @@
             <h5 class="card-title"><?php echo $row['warehouse_name'];?></h5>
             <h6 class="card-subtitle mb-2 text-muted">พื้นที่คงเหลือ : <?php echo $warehouse_percent;?> %</h6>
             <p class="card-text">สถานะ : <?php echo $warehouse_status;?></p>
-            <!--<a href="warehouse_manage.php?w_id=<?php echo $row['warehouse_id'];?>" class="card-link">จัดการโกดัง</a>-->
+            <a href="warehouse_manage.php?w_id=<?php echo $row['warehouse_id'];?>" class="card-link">จัดการโกดัง</a>
           </div>
         </div>
       <?php } ?>

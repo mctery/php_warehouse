@@ -2,13 +2,10 @@
 <html lang="en" dir="ltr">
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
-  <script src="bootstrap/js/popper.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="import_js/Chart.min.js"></script>
-  <script src="import_js/main.js"></script>
-  <title>Warehouse</title>
+  <?php
+    require 'head.php';
+    session_start();
+  ?>
  </head>
  <?php
   require 'connect.php';
@@ -82,7 +79,7 @@
                <center>
                  <label for="inputState">รูปภาพคลังสินค้า</label>
                    <div style="background-image:url('img/warehouse/w_def.jpg'); background-repeat: no-repeat; border: 2px solid #dfe6e9; border-radius: 100px; overflow: hidden; background-size: 200px 200px; width:200px; height:200px;">
-                     <img src="img/warehouse/<?php echo $row['warehouse_img']; ?>" width="100%" height="100%">
+                     <img src="../img/warehouse/<?php echo $row['warehouse_img']; ?>" width="100%" height="100%">
                    </div>
                </center>
              </div>

@@ -1,5 +1,4 @@
 <?php
-  session_start();
   $host = "localhost";
   $username = "mctery";
   $password = "ORJFQSe246mGh8U0";
