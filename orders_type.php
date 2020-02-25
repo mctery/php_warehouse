@@ -2,14 +2,8 @@
 <html lang="en" dir="ltr">
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
-  <script src="bootstrap/js/popper.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="import_js/Chart.min.js"></script>
-  <script src="import_js/main.js"></script>
-  <title>Warehouse</title>
- </head>
+  <?php require 'head.php'; ?>
+  </head>
  <?php
   require 'connect.php';
   $sql_warehouse = "SELECT * FROM `warehouse`";
@@ -17,19 +11,7 @@
   $sql_orders_type = "SELECT * FROM `orders_type`";
  ?>
  <body>
-   <style>
-   *{
-     user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
-   }
-   </style>
   <div class="container-fluid">
-
-        <div class="alert alert-danger" style="margin-top:20px; display:none; position:fixed; z-index:10;" role="alert">Username หรือ Password ไม่ถูกต้อง กรุณา Login ใหม่อีกครั้ง</div>
-
         <?php require 'nev_bar.php';?>
         <div class="row">
          <?php require 'side_bar.php';?>

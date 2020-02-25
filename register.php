@@ -2,13 +2,7 @@
 <html lang="en" dir="ltr">
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <script src="bootstrap/js/jquery-3.4.1.min.js"></script>
-  <script src="bootstrap/js/popper.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="import_js/Chart.min.js"></script>
-  <script src="import_js/main.js"></script>
-  <title>Warehouse</title>
+  <?php require 'head.php'; ?>
  </head>
  <?php
   require 'connect.php';
@@ -18,9 +12,6 @@
  ?>
  <body>
   <div class="container-fluid">
-
-    <div class="alert alert-success" id="regis_ss" style="margin:20px auto; left:50%; transform: translate(-50,-50); display:none; position:fixed; z-index:10;" role="success">สมัครสมาชิกเรียบร้อย</div>
-
     <?php require 'nev_bar.php';?>
     <div class="row">
      <?php require 'side_bar.php';?>

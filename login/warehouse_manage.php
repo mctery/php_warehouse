@@ -16,7 +16,7 @@
  ?>
  <body>
   <div class="container-fluid">
-
+    <div id="alert_s" class="alert alert-success" style="margin-top:50px; left:50%; transform:translate(-50%,-50%); display:none; position:fixed; z-index:10;" role="alert">ลบคลังสินค้าเรียบร้อย...</div>
     <?php require 'nev_bar.php';?>
     <div class="row">
      <?php require 'side_bar.php';?>
@@ -55,35 +55,61 @@
        <hr>
        <div class="card bg-light" style="width:100%; height: auto; margin:0 0 10px 0;">
          <center>
+        <form id="warehouse_f" name="warehouse_f" action="update_warehouse.php" method="post" enctype="multipart/form-data">
          <div class="card bg-light text-left" style="width:60%; height: auto; margin:10px 0 10px 0; padding:10px;">
            <p class="text-center"><h4>คลังสินค้า : <?php echo $row['warehouse_name']; ?></h4></p>
              <div class="form-group">
                <label for="names">รหัสคลังสินค้า</label>
-               <input type="text" class="form-control" value="<?php echo $row['warehouse_id']; ?>" readonly>
+               <input type="text" id="w_id" name="w_id" class="form-control" readonly value="<?php echo $row['warehouse_id']; ?>">
+             </div>
+             <div class="form-group">
+               <label for="names">ชื่อคลังสินค้า</label>
+               <input type="text" name="w_name" class="form-control" value="<?php echo $row['warehouse_name']; ?>">
              </div>
              <div class="form-row">
                <div class="form-group col-md-6">
                  <label for="password">ความจุคลังสินค้า</label>
-                 <input type="text" class="form-control" value="<?php echo $row['warehouse_storage_full']; ?> : หน่วย" readonly>
+                 <div class="input-group mb-3">
+                  <input type="number" class="form-control" name="w_storage_full" value="<?php echo $row['warehouse_storage_full']; ?>">
+                  <div class="input-group-append">
+                    <span class="input-group-text">: หน่วย</span>
+                  </div>
+                </div>
                </div>
                <div class="form-group col-md-6">
                  <label for="mail">ถูกใช้ไปแล้ว</label>
-                 <input type="text" class="form-control" value="<?php echo $row['warehouse_storage_current']; ?> : หน่วย" readonly>
+                 <div class="input-group mb-3">
+                  <input type="number" class="form-control" name="w_storage_current" value="<?php echo $row['warehouse_storage_current']; ?>">
+                  <div class="input-group-append">
+                    <span class="input-group-text">: หน่วย</span>
+                  </div>
+                </div>
                </div>
              </div>
              <div class="form-group">
                <label for="user">ที่อยู่คลังสินค้า</label>
-               <textarea class="form-control" rows="3" readonly><?php echo $row['warehouse_location']; ?></textarea>
+               <textarea class="form-control" name="w_location" rows="3"><?php echo $row['warehouse_location']; ?></textarea>
              </div>
-             <div class="form-group">
-               <center>
-                 <label for="inputState">รูปภาพคลังสินค้า</label>
-                   <div style="background-image:url('img/warehouse/w_def.jpg'); background-repeat: no-repeat; border: 2px solid #dfe6e9; border-radius: 100px; overflow: hidden; background-size: 200px 200px; width:200px; height:200px;">
-                     <img src="../img/warehouse/<?php echo $row['warehouse_img']; ?>" width="100%" height="100%">
-                   </div>
-               </center>
+             <div class="form-row">
+               <div class="form-group col-md-6">
+                 <center>
+                   <label for="inputState">รูปภาพคลังสินค้า</label>
+                     <div style="background-image:url('../img/warehouse/w_def.jpg'); background-repeat: no-repeat; border: 2px solid #dfe6e9; border-radius: 100px; overflow: hidden; background-size: 200px 200px; width:200px; height:200px;">
+                       <img src="../img/warehouse/<?php echo $row['warehouse_img']; ?>" id="load_img" width="100%" height="100%">
+                     </div>
+                 </center>
+               </div>
+               <div class="form-group col-md-6">
+                   <label for="img_file">อัพโหลดรูปภาพคลังสินค้า</label>
+                   <input type="file" id="img_file" name="w_img" onchange="document.getElementById('load_img').src = window.URL.createObjectURL(this.files[0]);">
+               </div>
              </div>
-         </div>
+               <div class="form-group">
+                 <button class="btn btn-success" type="submit">แก้ไข</button>
+                 <button class="btn btn-danger" type="button" onclick="delete_warehouse()">ลบคลัง</button>
+               </div>
+             </div>
+       </form>
        </center>
        </div>
        <div class="card" style="width:100%; height: 30px; margin:0 0 10px 0;">

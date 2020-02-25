@@ -20,7 +20,7 @@
      <?php require 'side_bar.php';?>
     <div class="col-lg">
       <center>
-      <div class="card bg-light text-left" style="width:60%; height: auto; margin:10px 0 10px 0; padding:10px;">
+      <div class="card bg-light text-left" style="width:100%; height: auto; margin:10px 0 10px 0; padding:10px;">
         <p class="text-center"><h4>เพิ่มสินค้า</h4></p>
         <form action="insert_product.php" method="post" enctype="multipart/form-data">
           <div class="form-group">

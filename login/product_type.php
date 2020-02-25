@@ -29,8 +29,9 @@
                       <td>ประเภทสินค้า</td>
                       <td>ราคาสินค้า</td>
                       <td>จำนวนสินค้า</td>
+                      <td>รูปภาพสินค้า</td>
                       <td>วันที่รับ-เข้าสินค้า</td>
-                      <td colspan="2">คลังสินค้า</td>
+                      <td colspan="2">ที่อยู่คลังสินค้า</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -51,12 +52,14 @@
                       <tr>
                         <td><?php echo $row['product_id']; ?></td>
                         <td><?php echo $row['product_name']; ?></td>
+                        <!--<td><?php echo $row['product_detail']; ?></td>-->
                         <td><?php echo $row['product_type_name']; ?></td>
                         <td><?php echo number_format($row['product_price']); ?> : บาท</td>
                         <td><?php echo number_format($row['product_qty']); ?> : ชิ้น</td>
+                        <td><img class="rounded" src="../img/product/<?php echo $row['product_img'];?>" width="50px"></td>
                         <td><?php @$date=mktime($row['product_update']); echo date("d-m-Y",$date); ?></td>
-                        <td><?php echo $row['warehouse_name']."-".$row['zone_name']; ?></td>
-                        <td class="text-danger"><center><img src="../img/edit.png" width="30" /></center></td>
+                        <td><?php echo $row['zone_name']; ?></td>
+                        <td class="text-danger"><center><a href="product_manage.php?p_id=<?php echo $row['product_id']; ?>"><img src="../img/edit.png" width="30" /></a></center></td>
                   </tr>
                 </tbody>
                   <?php } ?>
