@@ -1,5 +1,6 @@
 <div id="alert_d" class="alert alert-danger" style="margin-top:50px; left:50%; transform:translate(-50%,-50%); display:none; position:fixed; z-index:10;" role="alert">Username หรือ Password ไม่ถูกต้อง กรุณา Login ใหม่อีกครั้ง</div>
 <div id="alert_s" class="alert alert-success" style="margin-top:50px; left:50%; transform:translate(-50%,-50%); display:none; position:fixed; z-index:10;" role="alert">เข้าสู่ระบบสำเร็จ กำลังเคลื่อนย้าย</div>
+<div id="alert_user" class="alert alert-warning" style="margin-top:50px; left:50%; color:#fff ;transform:translate(-50%,-50%); display:none; position:fixed; z-index:10;" role="alert"></div>
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#2980b9; height:60px;">
  <a class="navbar-brand text-white" href="index.php"><b>ระบบคลังสินค้า</b></a>

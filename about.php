@@ -49,7 +49,12 @@
       </div>
       <hr>
       <div class="card bg-light" style="width:100%; height: 400px; margin:0 0 10px 0;">
-        
+        <center>
+          <p class="card-text"><h3>จัดทำ Warehose Project โดย</h3></p>
+          <br>
+          <p class="card-text"><h5>นายธนวรรษ เลิศลำยอง รหัส 6206021420087</h5></p>
+          <p class="card-text"><h5>นายอานนท์ ชินแสง รหัส 6206021420133</h5></p>
+        </center>
       </div>
       <div class="card" style="width:100%; height: 30px; margin:0 0 10px 0;">
         <p class="text-center">Warehouse .inc</p>
