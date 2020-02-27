@@ -3,7 +3,7 @@
     header("location:protected_url.php");
     exit();
   }
-  setcookie("logout","logout_expire",time()+10);
+  setcookie("logout","logout_expire",time()+300);
 ?>
 
 <div id="alert_d" class="alert alert-danger" style="margin-top:50px; left:50%; transform:translate(-50%,-50%); display:none; position:fixed; z-index:10;" role="alert">กำลังออกจากระบบ...</div>

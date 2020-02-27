@@ -10,26 +10,36 @@ if(isset($_REQUEST['p_names'])&&isset($_REQUEST['p_price'])&&isset($_REQUEST['p_
     $row_st = $row_w['warehouse_storage_current'];
 
     if($row_st > '0' && $row_st - $_REQUEST['p_qty'] >= '0'){
-        $q_cal = ($row_st - $_REQUEST['p_qty']);
-        $sql_warehouse = "UPDATE `warehouse` SET warehouse_storage_current = '{$q_cal}' WHERE warehouse_id = '{$_REQUEST['p_warehouse']}'";
-        //echo $sql_warehouse;
-        $query_sql_warehouse = mysqli_query($connect,$sql_warehouse);
-        if($query_sql_warehouse){
-          $query = mysqli_query($connect,$sql_check);
-          if ($query) {
-            copy($_FILES['p_img']['tmp_name'],"../img/product/".$date);
-            echo "เพิ่มสินค้าสำเร็จ";
-            header('refresh: 3;url=add_product.php');
-          }
-          else {
+          $q_cal = ($row_st - $_REQUEST['p_qty']);
+          if($q_cal < 0){
             echo "เพิ่มสินค้าไม่สำเร็จ";
             header('refresh: 3;url=add_product.php');
+          }
+          else{
+            $sql_warehouse = "UPDATE `warehouse` SET warehouse_storage_current = '{$q_cal}' WHERE warehouse_id = '{$_REQUEST['p_warehouse']}'";
+            //echo $sql_warehouse;
+            $query_sql_warehouse = mysqli_query($connect,$sql_warehouse);
+            if($query_sql_warehouse){
+              $query = mysqli_query($connect,$sql_check);
+              if ($query) {
+                copy($_FILES['p_img']['tmp_name'],"../img/product/".$date);
+                echo "เพิ่มสินค้าสำเร็จ";
+                header('refresh: 3;url=add_product.php');
+              }
+              else {
+                echo "เพิ่มสินค้าไม่สำเร็จ";
+                header('refresh: 3;url=add_product.php');
+              }
           }
         }
         else {
           echo "เพิ่มสินค้าไม่สำเร็จ";
           header('refresh: 3;url=add_product.php');
         }
+      }
+      else{
+        echo "เพิ่มสินค้าไม่สำเร็จ คลังสินค้าเต็ม";
+        header('refresh: 3;url=add_product.php');
       }
     }
     else {
