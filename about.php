@@ -49,7 +49,7 @@
       </div>
       <hr>
       <div class="card bg-light" style="width:100%; height: 400px; margin:0 0 10px 0;">
-        //Graph
+        
       </div>
       <div class="card" style="width:100%; height: 30px; margin:0 0 10px 0;">
         <p class="text-center">Warehouse .inc</p>
