@@ -26,7 +26,7 @@
          <?php
            $query_sql_warehouse = mysqli_query($connect,$sql_warehouse);
            while ($row = $query_sql_warehouse->fetch_assoc()) {
-             $warehouse_percent = 100-(((float)$row['warehouse_storage_current']/(float)$row['warehouse_storage_full'])*100);
+             $warehouse_percent = (((int)$row['warehouse_storage_current']/(int)$row['warehouse_storage_full'])*100);
              $warehouse_status = "";
 
              if($warehouse_percent >= 50){
@@ -42,7 +42,7 @@
          <div class="card bg-light" style="width: 18rem; margin:10px 20px 0 0; float:left;">
            <div class="card-body">
              <h5 class="card-title"><?php echo $row['warehouse_name'];?></h5>
-             <h6 class="card-subtitle mb-2 text-muted">พื้นที่คงเหลือ : <?php echo $warehouse_percent;?> %</h6>
+             <h6 class="card-subtitle mb-2 text-muted">พื้นที่คงเหลือ : <?php echo number_format($warehouse_percent,2,'.',' ');?> %</h6>
              <p class="card-text">สถานะ : <?php echo $warehouse_status;?></p>
              <!--<a href="warehouse_manage.php?w_id=<?php echo $row['warehouse_id'];?>" class="card-link">จัดการโกดัง</a>-->
            </div>

@@ -24,7 +24,7 @@
         <?php
           $query_sql_warehouse = mysqli_query($connect,$sql_warehouse);
           while ($row = $query_sql_warehouse->fetch_assoc()) {
-            $warehouse_percent = 100-(((float)$row['warehouse_storage_current']/(float)$row['warehouse_storage_full'])*100);
+            $warehouse_percent = (((int)$row['warehouse_storage_current']/(int)$row['warehouse_storage_full'])*100);
             $warehouse_status = "";
 
             if($warehouse_percent >= 50){
