@@ -57,7 +57,7 @@
                         <td><?php echo number_format($row['product_price']); ?> : บาท</td>
                         <td><?php echo number_format($row['product_qty']); ?> : ชิ้น</td>
                         <td><img class="rounded" src="../img/product/<?php echo $row['product_img'];?>" width="50px"></td>
-                        <td><?php @$date=mktime($row['product_update']); echo date("d-m-Y",$date); ?></td>
+                        <td><?php echo $row['product_update']; ?></td>
                         <td><?php echo $row['zone_name']; ?></td>
                         <td class="text-danger"><center><a href="product_manage.php?p_id=<?php echo $row['product_id']; ?>"><img src="../img/edit.png" width="30" /></a></center></td>
                   </tr>
