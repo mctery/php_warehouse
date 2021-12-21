@@ -11,8 +11,8 @@
   $sql_orders_type = "SELECT * FROM `orders_type`";
  ?>
  <body>
-  <div class="container-fluid">
    <?php require_once 'nev_bar.php';?>
+  <div class="container-fluid">
    <div class="row">
     <?php require_once 'side_bar.php';?>
     <div class="col-lg" style="width:50%;">
